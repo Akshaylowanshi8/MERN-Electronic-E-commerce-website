@@ -3,6 +3,7 @@ import axios from "axios";
 import { FaSearch } from "react-icons/fa";
 import {addtocart} from "./ProductSlice"
 import { useSelector,useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 
 const Search=()=>{
 
@@ -20,11 +21,26 @@ const Search=()=>{
    console.log(get);
     }  
     const dispatch=useDispatch();
+
+    let aly=()=>{
+    // alert('Data not found')
+    toast.error('Data not found !', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        // transition: Bounce,
+        });
+    }
  let handsub=()=>{
 let url="http://localhost:8000/Displayproduct/Search";
 axios.post(url,get).then((res)=>{
  if (res.data.length === 0) {
-    document.getElementById("alart").innerHTML="Data not found"
+  aly()
 
     // alert('Data not found');
     } else {

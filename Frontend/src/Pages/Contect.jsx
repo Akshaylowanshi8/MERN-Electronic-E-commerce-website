@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const Contect=()=>{
 
@@ -7,6 +8,22 @@ const Contect=()=>{
     window.scrollTo(0, 0)
   }, [])
 
+
+  let suc=(e)=>{
+
+    toast.success(e, {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      // transition: Bounce,
+      });
+
+  }
 
     const [formData, setFormData] = useState({
         name: '',
@@ -29,7 +46,9 @@ const Contect=()=>{
         let api = "http://localhost:8000/Admin/contect"
     
         await axios.post(api,formData).then((res) => {
-            alert(res.data);
+
+          suc(res.data)
+            // alert(res.data);
             setFormData({
               name: '',
               email: '',
