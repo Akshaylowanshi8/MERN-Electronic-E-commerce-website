@@ -1,5 +1,37 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
+
+const notify = () => {
+toast.warn('already exists in your cart !', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        // transition: Bounce,
+        });
+}
+const notify1 = () => {
+    toast.warn('atlist one product buy !', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            // transition: Bounce,
+            });
+    }
 const initialState={
+
+    
 cart:[]
 }
 const ProductSlice=createSlice({
@@ -12,7 +44,9 @@ addtocart:(state,action)=>{
     var myitem=state.cart.filter((key)=>key.id===action.payload.id);
     if(myitem.length>=1)
     {
-        alert ("product alradey add") 
+        notify()
+        // alert ("product alradey add") 
+       
     }
 else{
         state.cart.push(action.payload)
@@ -42,7 +76,8 @@ else{
                     }
                      else
                      {
-                        alert("atlist one product buy")
+                     notify1()
+                        // alert("atlist one product buy")
                      }
                        
                     }
@@ -55,6 +90,8 @@ Cartimpt:(state )=>
 
 
 
+
+    
 }})
 
 export const { addtocart,CartRemove, proQtyInc,proQtyDec,Cartimpt} =ProductSlice.actions

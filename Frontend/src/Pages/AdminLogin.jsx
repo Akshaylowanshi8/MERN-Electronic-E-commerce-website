@@ -1,13 +1,28 @@
 import axios from "axios";
 import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 const AdminLogin=()=>{
 
 
-
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+  let suc2=()=>{
+    alert("welcom Admin")
+    toast.success('welcom Admin', {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      transition: Bounce,
+      });
+    
+      }
+  // useEffect(() => {
+  //   window.scrollTo(0, 0)
+  // }, [])
 const [input,setinput] = useState("");
 const [error, setError] = useState('');
 console.log(input);
@@ -20,6 +35,7 @@ const value =e.target.value;
   console.log(input);
 }
 const getLogin=(e)=>{
+ 
 
   e.preventDefault();
  let url ="http://localhost:8000/Admin/checkadmin"
@@ -28,9 +44,12 @@ axios.post(url,input)
   if(result.data === "Success"){
     window.localStorage.setItem("username", input.username)
 mynav("../Dashboard")
-alert("successfully login")
+suc2()
+
+// alert("khfu")
       }
     else{ 
+
       setError(result.data);
     
 }})
@@ -54,6 +73,23 @@ return( <>
      </div>
     </div>
 </form>
+
+<ToastContainer
+position="top-center"
+autoClose={5000}
+limit={3}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="colored"
+// transition: Bounce,
+/>
+
+
     </>
 )
 }

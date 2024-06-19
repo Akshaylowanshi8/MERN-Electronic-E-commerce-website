@@ -2,8 +2,25 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
+import { toast } from 'react-toastify';
 
 const UserLogin=()=>{
+
+  let suc=(e)=>{
+
+    toast.success(e, {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      // transition: Bounce,
+      });
+
+  }
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -32,7 +49,8 @@ let mynav =useNavigate()
             if(res.data.message === "succesfully Login"){
             window.localStorage.setItem("token",res.data.token)
             window.localStorage.setItem("username",res.data.username)
-            alert(res.data.message);
+            suc(res.data.message)
+            // alert();
             mynav("/home")
             }  
            

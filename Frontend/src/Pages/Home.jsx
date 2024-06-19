@@ -4,6 +4,9 @@ import {addtocart} from "./ProductSlice"
 import { useSelector,useDispatch } from "react-redux";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios";
 // Import Swiper styles
 import 'swiper/css';

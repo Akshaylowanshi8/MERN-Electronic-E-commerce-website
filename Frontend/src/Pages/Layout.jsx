@@ -8,6 +8,9 @@ import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { IoIosLogOut } from "react-icons/io";
 import { NavLink } from "react-router-dom"
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -30,7 +33,20 @@ const userlogout=()=>{
 
 
 window.localStorage.clear();
-alert("So are you sure...")
+
+toast.info('you are successfully logout!', {
+  position: "top-center",
+  autoClose: 5000,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+  theme: "colored",
+  // transition: Bounce,
+  })
+
+// alert("")
 document.getElementById("iii").style.display="none"
 mynav("/home")
 
@@ -121,6 +137,21 @@ return(
     <div style={{ marginTop: "1px" }} >
       <ScrollToTop smooth  style={{ marginTop: "100vh", textAlign:"center",justifyContent:"center", background:"#aaaaaa", padding:"3px"}} />
     </div>
+
+    <ToastContainer
+position="top-center"
+autoClose={5000}
+limit={3}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="colored"
+// transition: Bounce,
+/>
     </>
 )
 }

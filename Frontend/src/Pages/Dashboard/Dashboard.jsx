@@ -19,6 +19,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import { ToastContainer } from "react-toastify";
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
@@ -175,12 +176,26 @@ return(<>
         <Typography paragraph>
         <div >
 <Outlet />
+
 </div> 
         </Typography>
       </Main>
     </Box>
 
-
+<ToastContainer
+position="top-center"
+autoClose={5000}
+limit={3}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="colored"
+// transition: Bounce,
+/>
 </>)
 }
 export default Dashboard;

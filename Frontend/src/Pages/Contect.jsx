@@ -30,15 +30,14 @@ const Contect=()=>{
     
         await axios.post(api,formData).then((res) => {
             alert(res.data);
-            console.log(input);
-          
+            setFormData({
+              name: '',
+              email: '',
+              message: ''
+            });
           })
         // Reset form after submission
-        setFormData({
-          name: '',
-          email: '',
-          message: ''
-        });
+        
       }; 
     return (
         <>
@@ -50,7 +49,7 @@ const Contect=()=>{
       </div>
     </div>
     <div className="flex flex-wrap">
-      <form className="mb-12 w-full shrink-0 grow-0 basis-auto md:px-3 lg:mb-0 lg:w-5/12 lg:px-6">
+      <form className="mb-12 w-full shrink-0 grow-0 basis-auto md:px-3 lg:mb-0 lg:w-5/12 lg:px-6"  onSubmit={handleSubmit}>
         <div className="mb-3 w-full">
           <label
             className="block font-medium mb-[2px] text-teal-700"
@@ -104,7 +103,7 @@ const Contect=()=>{
           />
         </div>
         <button
-        onClick={handleSubmit}
+       
           className="mb-6 inline-block w-full rounded bg-teal-400 px-6 py-2.5 font-medium uppercase leading-normal text-white hover:shadow-md hover:bg-teal-500"
         >
           Send

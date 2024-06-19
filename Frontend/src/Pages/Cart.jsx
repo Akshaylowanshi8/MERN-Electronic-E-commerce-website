@@ -1,5 +1,8 @@
 import { CartRemove,proQtyInc,proQtyDec } from "./ProductSlice";
 import { useSelector,useDispatch } from "react-redux";
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 const Cart=()=>{
@@ -10,19 +13,49 @@ const Cart=()=>{
   let username= window.localStorage.getItem("username")
 
 let mynav= useNavigate()
+
+let alt=()=>{
+  toast.info('Please buy sum products!', {
+    position: "top-center",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored",
+    // transition: Bounce,
+    });}
+
+    let alt1=()=>{
+      toast.info('Please Login your account!', {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        // transition: Bounce,
+        });}
   const chackoutbtn=()=>{
+
 
     if(TotalPrice===0)
       { 
         // window.location.reload();
-        alert("please buy sum products")
+
+        alt();
+        // alert("please buy sum products")
         return}
 
 
 if(!username)
       {
+alt1()
 
-        alert("please Login your account")
+        // alert("please Login your account")
 
         return
 
