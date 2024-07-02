@@ -46,15 +46,15 @@ addtocart:(state,action)=>{
     {
         notify()
         // alert ("product alradey add") 
-       
     }
 else{
         state.cart.push(action.payload)
 }}
 ,CartRemove:(state ,action)=>
         {state.cart=state.cart.filter(item=>item.id!==action.payload) 
+     
+            
         },
-
     proQtyInc:(state,action)=>{
             for(var i=0;i<state.cart.length;i++)
             {
@@ -88,10 +88,6 @@ Cartimpt:(state )=>
     {state.cart=state.cart=[]; 
     },
 
-
-
-
-    
 }})
 
 export const { addtocart,CartRemove, proQtyInc,proQtyDec,Cartimpt} =ProductSlice.actions

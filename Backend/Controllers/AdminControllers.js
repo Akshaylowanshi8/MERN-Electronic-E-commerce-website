@@ -4,9 +4,6 @@ const AddProModel=require("../Models/AddproductModels");
 const payModel=require("../Models/paymentModels")
 
 const userModule=require("../Models/UserSignupModule")
-
-
-
 // Admin othantication ................................
 const checkadmin= async(req,res)=>{
     let { username, password} =req.body;

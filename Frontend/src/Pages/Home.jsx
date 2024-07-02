@@ -5,7 +5,6 @@ import { useSelector,useDispatch } from "react-redux";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { ToastContainer, toast } from 'react-toastify';
-
 import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios";
 // Import Swiper styles
@@ -20,16 +19,18 @@ const Home=()=> {
 
   let mynav=useNavigate();
   const updhand=(id)=>{
+
+
       mynav("../ProductDetail/"+id)
       
       }
-
   const getUser = async () => {
     try {
         const response = await axios.get("http://localhost:8000/login/sucess", { withCredentials: true });
 
         console.log("response",response)
     } catch (error) {
+
   console.log(error);
     }
 }
@@ -42,20 +43,17 @@ useEffect(() => {
 
   const dispatch=useDispatch();
   const mydata= useSelector((state)=>state.cartProduct.cart)
-
-  
-
 const [featureProduct,setfeatureProduct]=useState([])
 const [BestsellProduct,setBestsellProduct]=useState([])
 const [RecommendedProduct,setRecommendedProduct]=useState([])
 const [hotnewProduct,sethotnewProduct]=useState([])
-
-
 const LoadhotnewProduct=()=>{
   axios
     .get("http://localhost:8000/Displayproduct/LoadhotnewProduct")
     .then(res =>sethotnewProduct(res.data))
     }
+
+    
 const LoadfeatureProduct=()=>{
   axios
     .get("http://localhost:8000/Displayproduct/LoadfeatureProduct")

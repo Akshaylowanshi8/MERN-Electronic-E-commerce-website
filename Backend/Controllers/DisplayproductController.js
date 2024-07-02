@@ -10,8 +10,6 @@ try {
         res.status(404).send('Status: Not Found')
     }
 }
-
-
 const  LoadhotnewProduct=async(req,res)=>{
     try {
          let mydata=await AddProModel.find({Tag:"Hot new releases"}).sort({_id:-1}).limit(3)
