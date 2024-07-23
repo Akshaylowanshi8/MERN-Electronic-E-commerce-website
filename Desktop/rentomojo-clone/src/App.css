@@ -1,0 +1,29 @@
+.App {
+  text-align: center;
+  /* width: 85%; */
+  margin: auto;
+  /* font-family: Muli, sans-serif; */
+  font-family: "Muli" "sans-serif";
+  font-style: normal;
+  color: "rgb(186,186,186)";
+}
+
+.App {
+  /* media queries */
+  @media (max-width: 767px) {
+    text-align: center;
+  }
+  @media (max-width: 400px) {
+    text-align: left;
+  }
+}
+.navbar {
+  position: sticky;
+  position: -webkit-sticky;
+  /* z-index: 1; */
+  z-index: 9999;
+  top: 0;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  transition: box-shadow 0.3s ease-in-out;
+}
